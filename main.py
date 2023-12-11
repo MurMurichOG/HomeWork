@@ -29,6 +29,7 @@ async def send_pic(message: types.Message):
     ]
     random_element = types.FSInputFile(random.choice(files))
     await message.answer_photo(photo=random_element, caption="Кот")
+
 async def main():
     await bot.set_my_commands([
         types.BotCommand(command="start", description="Приветствие"),
@@ -36,6 +37,7 @@ async def main():
         types.BotCommand(command="myinfo", description="Моя информация")
     ])
     await dp.start_polling(bot)
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     asyncio.run(main())
